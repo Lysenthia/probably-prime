@@ -46,3 +46,16 @@ int isProbablyPrime(unsigned long n, int accuracy)
         }
     }
 }
+
+int main(void)
+{
+    unsigned long n;
+    int accuracy = 30;
+    printf("Please enter a number to check for primality:\n");
+    scanf("%lu", &n);
+    if (isProbablyPrime(n, accuracy)) {
+        printf("Number is probably prime");
+    } else {
+        printf("Number is not prime");
+    }
+}
