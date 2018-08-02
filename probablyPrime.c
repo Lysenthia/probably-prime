@@ -3,9 +3,8 @@
 #include <time.h>
 #include <math.h>
 #include <gmp.h>
-#define ACCURATE 30
 
-int main(void)
+int isProbablyPrime(unsigned long n, int accuracy)
 {
     // Initialise GNU MP Library variables
     mpz_t test_number;
@@ -18,20 +17,16 @@ int main(void)
     mpz_init(pow_mod_n);
     // Seed RNG
     srand(time(NULL));
-    // Init and grab variables
-    unsigned long n;
-    int accuracy = ACCURATE;
-    scanf("%lu", &n);
     int prime = 1;
     mpz_set_ui(n_large, n);
     if (n <= 3) {
         if (n == 1) {
-            printf("Value is not prime");
+            return 0;
         } else {
-            printf("Value is prime");
+            return 1;
         }
     } else if (n % 2 == 0) {
-        printf("Value is not prime");
+        return 0;
     } else {
         // Call upon eldritch forces
         for (int i = 0; i < accuracy; i++) {
@@ -45,9 +40,9 @@ int main(void)
             }
         }
         if (prime) {
-            printf("Value is probably prime");
+            return 1;
         } else {
-            printf("Value is not prime");
+            return 0;
         }
     }
 }
