@@ -39,9 +39,6 @@ int main(void)
             mpz_set_ui(test_number, a);
             mpz_pow_ui(power, test_number, n - 1);
             mpz_mod(pow_mod_n, power, n_large);
-            //Leftover debug script
-            //printf("Power: %lu\n", mpz_get_ui(power));
-            //printf("Modulus: %lu\n", mpz_get_ui(pow_mod_n));
             if (mpz_get_ui(pow_mod_n) != 1) {
                 prime = 0;
                 break;
